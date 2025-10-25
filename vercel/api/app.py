@@ -203,6 +203,15 @@ def logout():
     session.pop('logged_in', None)
     return redirect(url_for('login'))
 
+@app.route('/api/token_count', methods=['GET'])
+def get_token_count():
+    server_name = request.args.get("server", "IND").upper()
+    try:
+        tokens = load_tokens(server_name)
+        return jsonify({"count": len(tokens), "server": server_name})
+    except Exception as e:
+        return jsonify({"error": str(e), "count": 0}), 500
+
 LOGIN_HTML = '''
 <!DOCTYPE html>
 <html lang="en">
