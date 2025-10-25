@@ -36,7 +36,7 @@
       "dest": "/api/$1"
     },
     {
-      "src": "^/(like|login|logout)$",
+      "src": "^/(like|login|logout|api/token_count)$",
       "dest": "/api/app.py"
     },
     {
