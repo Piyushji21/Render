@@ -1,0 +1,47 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/app.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "admin.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "api/*.json",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "^/$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/admin$",
+      "dest": "/admin.html"
+    },
+    {
+      "src": "^/admin.html$",
+      "dest": "/admin.html"
+    },
+    {
+      "src": "^/api/(token_.*\\.json)$",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "^/(like|login|logout)$",
+      "dest": "/api/app.py"
+    },
+    {
+      "src": "^/(.*)$",
+      "dest": "/api/app.py"
+    }
+  ]
+}

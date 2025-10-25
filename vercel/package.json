@@ -1,0 +1,12 @@
+{
+  "name": "maxlikes-ind-frontend",
+  "version": "1.0.0",
+  "description": "MaxLikes IND Server Frontend - Simple interface for sending likes",
+  "scripts": {
+    "dev": "python -m http.server 3000 --directory public",
+    "build": "echo 'No build step required for static site'"
+  },
+  "keywords": ["maxlikes", "free-fire", "likes", "ind-server"],
+  "author": "",
+  "license": "MIT"
+}
